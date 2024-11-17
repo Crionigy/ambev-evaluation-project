@@ -17,6 +17,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(u => u.Username).IsRequired().HasMaxLength(50);
         builder.Property(u => u.Password).IsRequired().HasMaxLength(100);
         builder.Property(u => u.Email).IsRequired().HasMaxLength(100);
+        builder.Property(u => u.CreatedAt).IsRequired().HasColumnType("timestamp with time zone");
+        builder.Property(u => u.UpdatedAt).HasColumnType("timestamp with time zone");
         builder.Property(u => u.Phone).HasMaxLength(20);
 
         builder.Property(u => u.Status)
